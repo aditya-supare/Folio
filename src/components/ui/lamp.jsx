@@ -2,23 +2,56 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import SparklesCore from './sparkles'
+import { Button } from './button'
+import Link from 'next/link'
 
 
 export const LampComponent = () => (
   <LampContainer>
-    <motion.h1
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
+    <motion.div
+      initial={{ opacity: 0,}}
+      whileInView={{ opacity: 1,}}
       transition={{
-        delay: 0.6,
+        delay: 0.9,
         duration: 0.8,
         ease: 'easeInOut',
       }}
-      className="mt-20 bg-[#fef4c3] py-10 bg-clip-text text-center font-medium tracking-tight text-transparent md:text-5xl">
-        This site is under work. <br /> <span className='text-2xl'>~ aditya supare</span>
-    </motion.h1>
+      className="flex flex-col items-center mt-20 bg-gradient-to-br from-neutral-300 to-[#e1e0bd] bg-clip-text text-center font-medium tracking-tight text-transparent"
+    >
+      <h1 className="py-10 text-4xl md:text-5xl">
+        Hi, I&apos;m Aditya Supare
+      </h1>
+      <Link href='/contact'>
+      <button
+        className="mt-1 mr-10 flex items-center px-6 py-3 rounded-full bg-transparent border border-[#b4b291] border-opacity-40 text-[#e1e0bd] text-lg font-semibold"
+      >
+        
+        <span className="w-4 h-4 bg-green-500 rounded-full mr-3 relative">
+        <motion.span
+          className="absolute w-4 h-4 bg-green-500 opacity-10 rounded-full"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{
+            scale: [0, 2, 2],
+            opacity: [1, 0, 0],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{ left: 0 }}
+        />
+
+        </span>
+        Let&apos;s Connect
+       </button>
+      </Link>
+
+      
+    </motion.div>
   </LampContainer>
-)
+);
+
 
 export const LampContainer = ({ children, className }) => (
   <motion.div

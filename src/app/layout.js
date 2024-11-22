@@ -46,7 +46,7 @@ function TopNav() {
       
       <div>
         <Link href="/contact" passHref>
-          <div className="flex items-center gap-1 cursor-pointer text-[#e1e0bd] hover:text-[#3566c0] border-[#b8b79d]  rounded-full border-[1px] py-3 px-3 border-opacity-20">
+          <div className="flex items-center mr-4 gap-1 cursor-pointer text-[#e1e0bd] hover:text-[#3566c0] border-[#b8b79d]  rounded-full border-[1px] py-3 px-3 border-opacity-20">
             <Contact className="size-4" />
             <span className="hidden md:inline">Contact Me</span>
           </div>
