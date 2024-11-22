@@ -7,14 +7,14 @@ import SparklesCore from './sparkles'
 export const LampComponent = () => (
   <LampContainer>
     <motion.h1
-      initial={{ opacity: 0.5, y: 100 }}
+      initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{
-        delay: 0.3,
+        delay: 0.6,
         duration: 0.8,
         ease: 'easeInOut',
       }}
-      className="mt-20 bg-gradient-to-br from-neutral-300 to-neutral-500 py-10 bg-clip-text text-center font-medium tracking-tight text-transparent md:text-5xl">
+      className="mt-20 bg-[#fef4c3] py-10 bg-clip-text text-center font-medium tracking-tight text-transparent md:text-5xl">
         This site is under work. <br /> <span className='text-2xl'>~ aditya supare</span>
     </motion.h1>
   </LampContainer>

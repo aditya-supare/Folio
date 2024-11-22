@@ -11,6 +11,8 @@ import { IconBrandDiscord } from "@tabler/icons-react";
 
 const Landing = () => {
   return (
+    <div>
+      <section className="mt-0">
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -19,7 +21,15 @@ const Landing = () => {
     >
       
       <LampComponent className="absolute inset-0 z-0" />
+      </motion.div>
+      </section>
 
+      <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2 }}
+      className="relative h-screen "
+    >
       <FloatingDock
         items={[
           { title: "LinkedIn", icon: <IconBrandLinkedin />, href: "https://www.linkedin.com/in/aditya-supare-3b6988287/" },
@@ -30,17 +40,8 @@ const Landing = () => {
         ]}
         className="z-10"
       />
-
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="absolute z-10 flex flex-col items-center justify-center h-full px-6"
-        >
-
-      </motion.div>
     </motion.div>
+    </div>
   );
 };
 
