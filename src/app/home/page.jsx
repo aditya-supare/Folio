@@ -100,29 +100,52 @@ const Landing = () => {
       {/* Projects Section */}
       <h2 className="mt-3 px-8 text-purple-400 font-semibold text-4xl mb-8 cursor-default">My Projects</h2>
 
-
-      <FollowerPointerCard
-        title={<TitleComponent title='automate your workflows.' />}
-      >
-        <section className="mt-3 px-8 text-white bg-[#0E0B0A] mb-[100px]">
+      <FollowerPointerCard title={<TitleComponent title="Automate your workflows." />}>
+        <section className="mt-3 px-8  bg-[#0E0B0A] mb-[70px]">
           
+          <hr style={{border: "none", borderTop: "0.2px solid #b8b79d", margin: "20px 0", opacity: 0.4,}}/>
 
-          <hr style={{ border: "none", borderTop: "0.2px solid #b8b79d", margin: "20px 0", opacity: 0.4 }} />
+          <div
+            className="space-y-8 px-8 py-8" 
+          >
+            <div className="flex justify-between items-center">
+              {/* Left Section */}
+              <div className="flex flex-col">
+                <motion.h3 
+                
+                whileHover={{
+                  x:35,
+                  color:'#5ec8e5'
+                }}
+                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
+                className="text-4xl font-semibold text-[#e1e0bd]"
+                >
+                  Fuzzie
+                </motion.h3>
+                <motion.p whileHover={{
+                  x:25,
 
-          <div className="space-y-8 ">
-            <div className="flex justify-between">
-              <div>
-                <h3 className="text-xl font-semibold">Fuzzie</h3>
-                <p className="text-sm text-gray-400">2024</p>
+                }} transition={{type:'spring', stiffness:'100'}} className="text-sm text-[#c3c2aa]">2024</motion.p>
               </div>
-              <div className="text-right">
-                <p className="text-lg">UI/UX Design & Development</p>
-                <p className="text-sm text-gray-400">Next.js, PostgreSQL, Clerk, Gemini API</p>
-              </div>
+
+              {/* Right Section */}
+              <motion.div
+                whileHover={{
+                  x: -35, 
+                }}
+                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
+                className="text-right"
+              >
+                <p className="text-xl text-white">UI/UX Design & Development</p>
+                <p className="text-sm text-gray-400">
+                  Next.js, PostgreSQL, Clerk, Gemini API
+                </p>
+              </motion.div>
             </div>
           </div>
         </section>
       </FollowerPointerCard>
+      
       
       <FollowerPointerCard title={<TitleComponent title="Effortless API key mangement." />}>
         <section className="mt-3 px-8  bg-[#0E0B0A] mb-[70px]">
@@ -170,45 +193,93 @@ const Landing = () => {
         </section>
       </FollowerPointerCard>
 
+      <FollowerPointerCard title={<TitleComponent title="Start tracking your meditations." />}>
+        <section className="mt-3 px-8  bg-[#0E0B0A] mb-[70px]">
+          
+          <hr style={{border: "none", borderTop: "0.2px solid #b8b79d", margin: "20px 0", opacity: 0.4,}}/>
 
-      <FollowerPointerCard
-        title={<TitleComponent title='woah' />}
-      >
-        <section className="mt-3 px-8 text-white bg-[#0E0B0A] mb-[100px]">
+          <div
+            className="space-y-8 px-8 py-8" 
+          >
+            <div className="flex justify-between items-center">
+              {/* Left Section */}
+              <div className="flex flex-col">
+                <motion.h3 
+                
+                whileHover={{
+                  x:35,
+                  color:'#5ec8e5'
+                }}
+                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
+                className="text-4xl font-semibold text-[#e1e0bd]"
+                >
+                  Cosmic-Calm
+                </motion.h3>
+                <motion.p whileHover={{
+                  x:25,
 
-          <hr style={{ border: "none", borderTop: "0.2px solid #b8b79d", margin: "20px 0", opacity: 0.4 }} />
-
-          <div className="space-y-8">
-            <div className="flex justify-between pb-4">
-              <div>
-                <h3 className="text-xl font-semibold">Cosmic calm</h3>
-                <p className="text-sm text-gray-400">2024</p>
+                }} transition={{type:'spring', stiffness:'100'}} className="text-sm text-[#c3c2aa]">2024</motion.p>
               </div>
-              <div className="text-right">
-                <p className="text-lg">UI/UX Design & Development</p>
-                <p className="text-sm text-gray-400">Next.js, PostgreSQL, Clerk, Gemini API</p>
-              </div>
+
+              {/* Right Section */}
+              <motion.div
+                whileHover={{
+                  x: -35, 
+                }}
+                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
+                className="text-right"
+              >
+                <p className="text-xl text-white">UI/UX Design & Development</p>
+                <p className="text-sm text-gray-400">
+                  Next.js, PostgreSQL, Clerk, Gemini API
+                </p>
+              </motion.div>
             </div>
           </div>
         </section>
       </FollowerPointerCard>
-      <FollowerPointerCard
-        title={<TitleComponent title='woah' />}
-      >
-        <section className="mt-3 mb-[100px] px-8 text-white bg-[#0E0B0A]">
+      
+      <FollowerPointerCard title={<TitleComponent title="Everything about Indian exams." />}>
+        <section className="mt-3 px-8  bg-[#0E0B0A] mb-[70px]">
+          
+          <hr style={{border: "none", borderTop: "0.2px solid #b8b79d", margin: "20px 0", opacity: 0.4,}}/>
 
-          <hr style={{ border: "none", borderTop: "0.2px solid #b8b79d", margin: "20px 0", opacity: 0.4 }} />
+          <div
+            className="space-y-8 px-8 py-8" 
+          >
+            <div className="flex justify-between items-center">
+              {/* Left Section */}
+              <div className="flex flex-col">
+                <motion.h3 
+                
+                whileHover={{
+                  x:35,
+                  color:'#5ec8e5'
+                }}
+                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
+                className="text-4xl font-semibold text-[#e1e0bd]"
+                >
+                  Ed-gpt
+                </motion.h3>
+                <motion.p whileHover={{
+                  x:25,
 
-          <div className="space-y-8">
-            <div className="flex justify-between pb-4">
-              <div>
-                <h3 className="text-xl font-semibold">Ed-gpt</h3>
-                <p className="text-sm text-gray-400">2024</p>
+                }} transition={{type:'spring', stiffness:'100'}} className="text-sm text-[#c3c2aa]">2024</motion.p>
               </div>
-              <div className="text-right">
-                <p className="text-lg">UI/UX Design & Development</p>
-                <p className="text-sm text-gray-400">Next.js, PostgreSQL, Clerk, Gemini API</p>
-              </div>
+
+              {/* Right Section */}
+              <motion.div
+                whileHover={{
+                  x: -35, 
+                }}
+                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
+                className="text-right"
+              >
+                <p className="text-xl text-white">UI/UX Design & Development</p>
+                <p className="text-sm text-gray-400">
+                  Next.js, PostgreSQL, Clerk, Gemini API
+                </p>
+              </motion.div>
             </div>
           </div>
         </section>
