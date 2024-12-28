@@ -1,12 +1,26 @@
 'use client'
-import React from 'react'
+import React, {useState} from 'react'
 import { motion } from 'framer-motion'
 import SparklesCore from './sparkles'
-import { Button } from './button'
 import Link from 'next/link'
 
 
-export const LampComponent = () => (
+export const LampComponent = () => {
+
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2; 
+    const y = e.clientY - rect.top - rect.height / 2;
+    setPosition({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setPosition({ x: 0, y: 0 });
+  };
+  
+  return(
   <LampContainer>
     <motion.div
       initial={{ opacity: 0,}}
@@ -18,12 +32,19 @@ export const LampComponent = () => (
       }}
       className="flex flex-col items-center mt-20 bg-gradient-to-br from-neutral-300 to-[#e1e0bd] bg-clip-text text-center font-medium tracking-tight text-transparent"
     >
-      <h1 className="py-10 text-4xl md:text-5xl">
+      <h1 className="py-10 text-4xl md:text-5xl cursor-default">
         Hi, I&apos;m Aditya Supare
       </h1>
       <Link href='/contact'>
-      <button
-        className="mt-1 mr-10 flex items-center px-6 py-3 rounded-full bg-transparent border border-[#b4b291] border-opacity-40 text-[#e1e0bd] text-lg font-semibold"
+      <div className='relative w-full h-full'>
+      <motion.button
+        whileHover={{
+          x: position.x / 5, 
+          y: position.y / 5,
+        }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="mt-1 mr-10 flex items-center px-3 py-3 rounded-full bg-transparent border border-[#b4b291] border-opacity-40 text-[#e1e0bd] text-lg from-medium"
       >
         
         <span className="w-4 h-4 bg-green-500 rounded-full mr-3 relative">
@@ -44,13 +65,14 @@ export const LampComponent = () => (
 
         </span>
         Let&apos;s Connect
-       </button>
+       </motion.button>
+       </div>
       </Link>
 
       
     </motion.div>
   </LampContainer>
-);
+)};
 
 
 export const LampContainer = ({ children, className }) => (
@@ -138,6 +160,7 @@ export const LampContainer = ({ children, className }) => (
         ease: 'easeInOut',
       }}
       className="w-[40rem] h-40 relative"
+      style={{ pointerEvents: 'none' }}
       >
         <SparklesCore
           background="transparent"
