@@ -3,10 +3,15 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { LampComponent } from "@/components/ui/lamp";
 import { FloatingDock } from "@/components/ui/floating-dock";
-import { IconBrandGithub, IconBrandDribbble, IconBrandLinkedin, IconBrandX, IconBrandDiscord } from "@tabler/icons-react";
+import {
+  IconBrandGithub,
+  IconBrandDribbble,
+  IconBrandLinkedin,
+  IconBrandX,
+  IconBrandDiscord,
+} from "@tabler/icons-react";
 import { FollowerPointerCard } from "@/components/ui/following-pointer";
 import Lenis from "lenis";
-import { color } from "framer-motion";
 
 const TitleComponent = ({ title }) => (
   <div className="flex space-x-2 items-center">
@@ -14,17 +19,80 @@ const TitleComponent = ({ title }) => (
   </div>
 );
 
-const ContainerVarients = {
+const containerVariants = {
   initial: {
-    x:0,
-    color: 'default'
+    x: 0,
+    color: "#e1e0bd", // Default color
   },
-  later:{
-    x:35,
-    color: '#5ec8e5'
-  }
-}
+  later: {
+    x: 35,
+    color: "#5ec8e5", // Hover color
+    transition: {
+      type: "smooth",
+      stiffness: 100,
+      duration: 0.3,
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+    },
+  },
+};
 
+// const childVariants = {
+//   initial: {
+//     x: 0,
+//     color: "#e1e0bd", // Default color
+//   },
+//   later: {
+//     x: 35,
+//     color: "#5ec8e5", // Hover color
+//     transition: { type: "smooth", stiffness: 100, duration: 0.3 },
+//   },
+// };
+
+// const RightVarients = {
+//   initial: {
+//     x: 0,
+//   },
+//   later: {
+//     x: -35,
+//     transition: {
+//       type: "smooth",
+//       stiffness: 100,
+//       duration: 0.3,
+//     },
+//   },
+// };
+
+const projects = [
+  {
+    title: "Automate your workflows.",
+    name: "Fuzzie",
+    year: "2024",
+    description: "UI/UX Design & Development",
+    tech: "Next.js, PostgreSQL, Clerk, Gemini API",
+  },
+  {
+    title: "Effortless API key management.",
+    name: "GrantX",
+    year: "2024",
+    description: "UI/UX Design & Development",
+    tech: "Next.js, PostgreSQL, Clerk, Gemini API",
+  },
+  {
+    title: "Start tracking your meditations.",
+    name: "Cosmic-Calm",
+    year: "2024",
+    description: "UI/UX Design & Development",
+    tech: "Next.js, PostgreSQL, Clerk, Gemini API",
+  },
+  {
+    title: "Everything about Indian exams.",
+    name: "Ed-gpt",
+    year: "2024",
+    description: "UI/UX Design & Development",
+    tech: "Next.js, PostgreSQL, Clerk, OpenAI API",
+  },
+];
 
 const Landing = () => {
   useEffect(() => {
@@ -33,7 +101,7 @@ const Landing = () => {
     });
 
     function raf(time) {
-      lenis.raf(time); 
+      lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
@@ -42,6 +110,7 @@ const Landing = () => {
 
   return (
     <div>
+      {/* Header Section */}
       <section className="mt-0">
         <motion.div
           initial={{ opacity: 0 }}
@@ -53,29 +122,42 @@ const Landing = () => {
         </motion.div>
       </section>
 
-      <hr style={{ border: "none", borderTop: "0.2px solid #b8b79d", margin: "20px 0", opacity: 0.4 }} />
+      <hr
+        style={{
+          border: "none",
+          borderTop: "0.2px solid #b8b79d",
+          margin: "20px 0",
+          opacity: 0.4,
+        }}
+      />
 
-
-
-
-      {/* Fixed Floating Dock */}
+      {/* Floating Dock */}
       <FloatingDock
         items={[
-          { title: "LinkedIn", icon: <IconBrandLinkedin />, href: "https://www.linkedin.com/in/aditya-supare-3b6988287/" },
+          {
+            title: "LinkedIn",
+            icon: <IconBrandLinkedin />,
+            href: "https://www.linkedin.com/in/aditya-supare-3b6988287/",
+          },
           { title: "Discord", icon: <IconBrandDiscord />, href: "/" },
-          { title: "ArtStation", icon: <IconBrandDribbble />, href: "https://www.artstation.com/wabi_001" },
-          { title: "Github", icon: <IconBrandGithub />, href: "https://github.com/aditya-supare" },
+          {
+            title: "ArtStation",
+            icon: <IconBrandDribbble />,
+            href: "https://www.artstation.com/wabi_001",
+          },
+          {
+            title: "Github",
+            icon: <IconBrandGithub />,
+            href: "https://github.com/aditya-supare",
+          },
           { title: "Twitter", icon: <IconBrandX />, href: "https://x.com/001_wabi" },
         ]}
         className="fixed z-10"
       />
 
-
-
-
       {/* Info Section */}
       <section className="mt-6 px-8 text-white font-light bg-[#0E0B0A]">
-        <p className="text-green-400 text-sm uppercase mb-2">// Design, Code, <br />Engage</p>
+        <p className="text-green-400 text-sm uppercase mb-2">// Design, Code, <br/> Engage</p>
         <h1 className="text-4xl font-light leading-snug mb-10 mt-12 ml-2">
           Empowering success in the digital landscape. <br />
           Together, we shape a visionary future, <br />
@@ -84,206 +166,86 @@ const Landing = () => {
         <h2 className="text-green-500 text-4xl font-semibold mb-6">
           Coding the Future<br />Architecting Innovation
         </h2>
-        <hr style={{ border: "none", borderTop: "0.2px solid #b8b79d", margin: "20px 0", opacity: 0.4 }} />
+        <hr
+          style={{
+            border: "none",
+            borderTop: "0.2px solid #b8b79d",
+            margin: "20px 0",
+            opacity: 0.4,
+          }}
+        />
         <p className="text-2xl mt-9 text-gray-300">
-          I specialize in engineering bespoke solutions, <br /> consistently pushing the limits in each project, <br /> with an unwavering dedication to prioritizing excellence.
+          I specialize in engineering bespoke solutions, <br /> consistently pushing the limits in each project, <br />
+          with an unwavering dedication to prioritizing excellence.
         </p>
         <button className="mt-6 ml-[1250px] px-7 py-4 bg-green-600 text-white font-medium text-2xl rounded-full hover:bg-green-500 transition-all">
           About Me →
         </button>
       </section>
 
-
-
-
-
       {/* Projects Section */}
-      <h2 className="mt-3 px-8 text-purple-400 font-semibold text-4xl mb-8 cursor-default">My Projects</h2>
-
-      <FollowerPointerCard title={<TitleComponent title="Automate your workflows." />}>
-        <section className="mt-3 px-8  bg-[#0E0B0A] mb-[70px]">
-          
-          <hr style={{border: "none", borderTop: "0.2px solid #b8b79d", margin: "20px 0", opacity: 0.4,}}/>
-
-          <div
-            className="space-y-8 px-8 py-8" 
-          >
-            <div className="flex justify-between items-center">
-              {/* Left Section */}
-              <div className="flex flex-col">
-                <motion.h3 
-                
-                whileHover={{
-                  x:35,
-                  color:'#5ec8e5'
-                }}
-                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
-                className="text-4xl font-semibold text-[#e1e0bd]"
-                >
-                  Fuzzie
-                </motion.h3>
-                <motion.p whileHover={{
-                  x:25,
-
-                }} transition={{type:'spring', stiffness:'100'}} className="text-sm text-[#c3c2aa]">2024</motion.p>
-              </div>
-
-              {/* Right Section */}
-              <motion.div
-                whileHover={{
-                  x: -35, 
-                }}
-                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
-                className="text-right"
-              >
-                <p className="text-xl text-white">UI/UX Design & Development</p>
-                <p className="text-sm text-gray-400">
-                  Next.js, PostgreSQL, Clerk, Gemini API
-                </p>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-      </FollowerPointerCard>
+      <h2 className="mt-3 px-8 text-purple-400 font-semibold text-4xl mb-8 cursor-default">
+        My Projects
+      </h2>
       
-      
-      <FollowerPointerCard title={<TitleComponent title="Effortless API key mangement." />}>
-        <section className="mt-3 px-8  bg-[#0E0B0A] mb-[70px]">
-          
-          <hr style={{border: "none", borderTop: "0.2px solid #b8b79d", margin: "20px 0", opacity: 0.4,}}/>
-
-          <div
-            className="space-y-8 px-8 py-8" 
+      {projects.map((project, index) => (
+        <FollowerPointerCard key={index} title={<TitleComponent title={project.title} />}>
+          <hr
+            style={{
+              border: "none",
+              borderTop: "0.2px solid #b8b79d",
+              margin: "20px 0",
+              opacity: 0.4,
+            }}
+          />
+          {/* Parent container */}
+          <motion.div
+            className="mt-3 px-8 mb-[70px] space-y-8 py-8"
+            initial="initial"
+            whileHover="hover"
           >
             <div className="flex justify-between items-center">
               {/* Left Section */}
-              <div className="flex flex-col">
-                <motion.h3 
-                
-                whileHover={{
-                  x:35,
-                  color:'#5ec8e5'
+              <motion.div
+                variants={{
+                  initial: { x: 0, color: "#e1e0bd" },
+                  hover: { x: 55, color: "#5ec8e5" },
                 }}
-                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
-                className="text-4xl font-semibold text-[#e1e0bd]"
-                >
-                  GrantX
-                </motion.h3>
-                <motion.p whileHover={{
-                  x:25,
-
-                }} transition={{type:'spring', stiffness:'100'}} className="text-sm text-[#c3c2aa]">2024</motion.p>
-              </div>
+                transition={{
+                  type: "stiff",
+                  stiffness: 100,
+                  duration: 0.25,
+                }}
+                className="flex flex-col"
+              >
+                <h3 className="text-4xl font-semibold">{project.name}</h3>
+                <motion.p 
+                initial = {{x:0}}
+                whileHover={{x:-65}}
+                className="text-sm text-[#e1e0bd]">{project.year}</motion.p>
+              </motion.div>
+              
 
               {/* Right Section */}
               <motion.div
-                whileHover={{
-                  x: -35, 
+                variants={{
+                  initial: { x: 0 },
+                  hover: { x: -35 },
                 }}
-                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
+                transition={{
+                  type: "stiff",
+                  stiffness: 100,
+                  duration: 0.25,
+                }}
                 className="text-right"
               >
-                <p className="text-xl text-white">UI/UX Design & Development</p>
-                <p className="text-sm text-gray-400">
-                  Next.js, PostgreSQL, Clerk, Gemini API
-                </p>
+                <p className="text-xl text-[#e1e0bd]">{project.description}</p>
+                <p className="text-sm text-[#a2a18d]">{project.tech}</p>
               </motion.div>
             </div>
-          </div>
-        </section>
-      </FollowerPointerCard>
-
-      <FollowerPointerCard title={<TitleComponent title="Start tracking your meditations." />}>
-        <section className="mt-3 px-8  bg-[#0E0B0A] mb-[70px]">
-          
-          <hr style={{border: "none", borderTop: "0.2px solid #b8b79d", margin: "20px 0", opacity: 0.4,}}/>
-
-          <div
-            className="space-y-8 px-8 py-8" 
-          >
-            <div className="flex justify-between items-center">
-              {/* Left Section */}
-              <div className="flex flex-col">
-                <motion.h3 
-                
-                whileHover={{
-                  x:35,
-                  color:'#5ec8e5'
-                }}
-                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
-                className="text-4xl font-semibold text-[#e1e0bd]"
-                >
-                  Cosmic-Calm
-                </motion.h3>
-                <motion.p whileHover={{
-                  x:25,
-
-                }} transition={{type:'spring', stiffness:'100'}} className="text-sm text-[#c3c2aa]">2024</motion.p>
-              </div>
-
-              {/* Right Section */}
-              <motion.div
-                whileHover={{
-                  x: -35, 
-                }}
-                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
-                className="text-right"
-              >
-                <p className="text-xl text-white">UI/UX Design & Development</p>
-                <p className="text-sm text-gray-400">
-                  Next.js, PostgreSQL, Clerk, Gemini API
-                </p>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-      </FollowerPointerCard>
-      
-      <FollowerPointerCard title={<TitleComponent title="Everything about Indian exams." />}>
-        <section className="mt-3 px-8  bg-[#0E0B0A] mb-[70px]">
-          
-          <hr style={{border: "none", borderTop: "0.2px solid #b8b79d", margin: "20px 0", opacity: 0.4,}}/>
-
-          <div
-            className="space-y-8 px-8 py-8" 
-          >
-            <div className="flex justify-between items-center">
-              {/* Left Section */}
-              <div className="flex flex-col">
-                <motion.h3 
-                
-                whileHover={{
-                  x:35,
-                  color:'#5ec8e5'
-                }}
-                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
-                className="text-4xl font-semibold text-[#e1e0bd]"
-                >
-                  Ed-gpt
-                </motion.h3>
-                <motion.p whileHover={{
-                  x:25,
-
-                }} transition={{type:'spring', stiffness:'100'}} className="text-sm text-[#c3c2aa]">2024</motion.p>
-              </div>
-
-              {/* Right Section */}
-              <motion.div
-                whileHover={{
-                  x: -35, 
-                }}
-                transition={{ type: "spring", stiffness: 100, duration:0.1 }}
-                className="text-right"
-              >
-                <p className="text-xl text-white">UI/UX Design & Development</p>
-                <p className="text-sm text-gray-400">
-                  Next.js, PostgreSQL, Clerk, Gemini API
-                </p>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-      </FollowerPointerCard>
+          </motion.div>
+        </FollowerPointerCard>
+      ))}
     </div>
   );
 };
