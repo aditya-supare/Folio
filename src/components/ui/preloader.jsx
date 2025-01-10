@@ -85,7 +85,7 @@ const Preloader = ({ onComplete }) => {
         targets: ".ml16 .letter",
         translateY: [0, 100],
         easing: "easeOutExpo",
-        duration: 3000,
+        duration: 1500,
         delay: (el, i) => 2000 + 30 * i,
       });
   }, []);

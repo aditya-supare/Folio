@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { LampComponent } from "@/components/ui/lamp";
 import { FloatingDock } from "@/components/ui/floating-dock";
@@ -13,55 +13,15 @@ import {
 import { FollowerPointerCard } from "@/components/ui/following-pointer";
 import Lenis from "lenis";
 
+
+
 const TitleComponent = ({ title }) => (
   <div className="flex space-x-2 items-center">
     <p>{title}</p>
   </div>
 );
 
-const containerVariants = {
-  initial: {
-    x: 0,
-    color: "#e1e0bd", // Default color
-  },
-  later: {
-    x: 35,
-    color: "#5ec8e5", // Hover color
-    transition: {
-      type: "smooth",
-      stiffness: 100,
-      duration: 0.3,
-      when: "beforeChildren",
-      staggerChildren: 0.1,
-    },
-  },
-};
 
-// const childVariants = {
-//   initial: {
-//     x: 0,
-//     color: "#e1e0bd", // Default color
-//   },
-//   later: {
-//     x: 35,
-//     color: "#5ec8e5", // Hover color
-//     transition: { type: "smooth", stiffness: 100, duration: 0.3 },
-//   },
-// };
-
-// const RightVarients = {
-//   initial: {
-//     x: 0,
-//   },
-//   later: {
-//     x: -35,
-//     transition: {
-//       type: "smooth",
-//       stiffness: 100,
-//       duration: 0.3,
-//     },
-//   },
-// };
 
 const projects = [
   {
@@ -157,13 +117,13 @@ const Landing = () => {
 
       {/* Info Section */}
       <section className="mt-6 px-8 text-white font-light bg-[#0E0B0A]">
-        <p className="text-green-400 text-sm uppercase mb-2">// Design, Code, <br/> Engage</p>
-        <h1 className="text-4xl font-light leading-snug mb-10 mt-12 ml-2">
+        <p className="text-[#edecd1] text-sm uppercase mb-2">// Design, Code, <br/> Engage</p>
+        <h1 className="text-4xl text-[#efefdb] font-light leading-snug mb-10 mt-12 ml-2">
           Empowering success in the digital landscape. <br />
           Together, we shape a visionary future, <br />
           delivering on promises and continuously pioneering innovation.
         </h1>
-        <h2 className="text-green-500 text-4xl font-semibold mb-6">
+        <h2 className="text-[#00e025] text-4xl font-semibold mb-6">
           Coding the Future<br />Architecting Innovation
         </h2>
         <hr
@@ -174,13 +134,18 @@ const Landing = () => {
             opacity: 0.4,
           }}
         />
-        <p className="text-2xl mt-9 text-gray-300">
+        <p className="text-2xl mt-9 text-[#efefdb]">
           I specialize in engineering bespoke solutions, <br /> consistently pushing the limits in each project, <br />
           with an unwavering dedication to prioritizing excellence.
         </p>
-        <button className="mt-6 ml-[1250px] px-7 py-4 bg-green-600 text-white font-medium text-2xl rounded-full hover:bg-green-500 transition-all">
-          About Me →
-        </button>
+        <motion.button
+                  whileHover={{
+                    x: 20 , 
+                  }}
+                  className="mt-6 ml-[1250px] flex items-center px-7 py-4 rounded-full bg-transparent border border-[#e1e0bd] border-opacity-20 text-[#e1e0bd] text-2xl font-medium"
+                >
+                  About Me →
+        </motion.button>
       </section>
 
       {/* Projects Section */}
@@ -195,7 +160,7 @@ const Landing = () => {
               border: "none",
               borderTop: "0.2px solid #b8b79d",
               margin: "20px 0",
-              opacity: 0.4,
+              opacity: 0.3,
             }}
           />
           {/* Parent container */}
@@ -216,13 +181,13 @@ const Landing = () => {
                   stiffness: 100,
                   duration: 0.25,
                 }}
-                className="flex flex-col"
+                className="flex flex-col ml-20"
               >
                 <h3 className="text-4xl font-semibold">{project.name}</h3>
                 <motion.p 
                 initial = {{x:0}}
                 whileHover={{x:-65}}
-                className="text-sm text-[#e1e0bd]">{project.year}</motion.p>
+                className="text-sm text-[#e1e0bd] mt-1">{project.year}</motion.p>
               </motion.div>
               
 
@@ -237,7 +202,7 @@ const Landing = () => {
                   stiffness: 100,
                   duration: 0.25,
                 }}
-                className="text-right"
+                className="text-right mr-20"
               >
                 <p className="text-xl text-[#e1e0bd]">{project.description}</p>
                 <p className="text-sm text-[#a2a18d]">{project.tech}</p>
