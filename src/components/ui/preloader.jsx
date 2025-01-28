@@ -101,7 +101,7 @@ const Preloader = ({ onComplete }) => {
           <p>0</p>
         </div>
         <div className="copy">
-          <p className="ml16 folio">Folio</p>
+          <p className="ml16 folio">Welcome</p>
         </div>
       </div>
       <div className="loader-2"></div>

@@ -13,6 +13,11 @@ import {
 import { FollowerPointerCard } from "@/components/ui/following-pointer";
 import Lenis from "lenis";
 import { CardContainer,CardBody,CardItem } from "@/components/ui/3d-card";
+import { Paintbrush } from "lucide-react";
+import { LucidePaintbrush2 } from "lucide-react";
+import { Laptop2 } from "lucide-react";
+import { Laptop } from "lucide-react";
+import { Settings } from "lucide-react";
 
 
 
@@ -163,42 +168,37 @@ const Landing = () => {
       </span>
       </div>
       <div className="flex flex-wrap items-center text-left justify-center flex-col md:flex-row gap-8 mt-0">    
-        <CardContainer className="inter-var">
-          <CardBody className="bg-[#191917] relative group/card  dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] dark:bg-black dark:border-white/[0.2] border-white/[0.1] w-full md:!w-[350px] h-auto rounded-xl px-5 py-20 border">
-            <CardItem 
-            translateZ={50}
-            className="text-2xl font-bold text-[#3ccbf6ef]"
-            >
-              Ui/Ux  
-            </CardItem>
-            <CardItem
-                translateZ="60"
-                className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+
+      <CardContainer className="inter-var">
+          <CardBody className="bg-[#191917] relative group/card dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] dark:bg-black dark:border-white/[0.2] border-white/[0.1] w-full md:!w-[350px] h-auto rounded-xl px-5 py-20 border flex flex-col">
+            <div className="mt-10 text-pretty text-start">
+              <CardItem 
+                translateZ={50}
+                className="text-2xl font-bold text-[#3ccbf6ef] flex items-center justify-between"
+              >
+                UI/UX <Paintbrush className="w-7 h-6 text-[#3ccbf6ef]" />
+              </CardItem>
+
+              
+              <CardItem
+                translateZ={60}
+                className="text-neutral-500 text-sm mt-2 dark:text-neutral-300"
               >
                 Crafting intuitive and aesthetically pleasing interfaces for seamless user interactions and engagement.
-                <ul className="my-4 flex flex-col gap-2">
-                  <li className="flex items-center gap-2">
-                    
-                  </li>
-                  <li className="flex items-center gap-2">
-                    
-                  </li>
-                  <li className="flex items-center gap-2">
-                    
-                  </li>
-                </ul>
               </CardItem>
-              <div className="flex justify-between items-center mt-8">
-              </div>
+            </div>
           </CardBody>
         </CardContainer>
+
+
         <CardContainer className="inter-var">
           <CardBody className="bg-[#191917] relative group/card  dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] dark:bg-black dark:border-white/[0.2] border-white/[0.1] w-full md:!w-[350px] h-auto rounded-xl px-5 py-20 border">
+          <div className="mt-10 text-pretty text-start">
             <CardItem 
             translateZ={50}
-            className="text-2xl font-bold text-[#bc6cee]"
+            className="text-2xl font-bold text-[#bc6cee] flex items-center justify-between"
             >
-              2D/3D Animation
+              2D/3D Animation <LucidePaintbrush2 className="w-7 h-7"/>
               
             </CardItem>
             <CardItem
@@ -206,29 +206,22 @@ const Landing = () => {
                 className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
                 Creating dynamic visual experiences with interactive 2D and 3D animations to captivate your audience.
-                <ul className="my-4 flex flex-col gap-2">
-                  <li className="flex items-center gap-2">
-                    
-                  </li>
-                  <li className="flex items-center gap-2">
-                    
-                  </li>
-                  <li className="flex items-center gap-2">
-                    
-                  </li>
-                </ul>
+                
               </CardItem>
-              <div className="flex justify-between items-center mt-8">
               </div>
           </CardBody>
         </CardContainer>
+
+
+
         <CardContainer className="inter-var">
           <CardBody className="bg-[#191917] relative group/card  dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] dark:bg-black dark:border-white/[0.2] border-white/[0.1] w-full md:!w-[350px] h-auto rounded-xl px-5 py-20 border">
+            <div className="mt-10 text-pretty text-start">
             <CardItem 
             translateZ={50}
-            className="text-2xl font-bold text-[#e8b658]"
+            className="text-2xl font-bold text-[#e8b658] flex items-center justify-between"
             >
-              Web App
+              Web App<Laptop className="h-7 w-7"/>
               
             </CardItem>
             <CardItem
@@ -236,29 +229,18 @@ const Landing = () => {
                 className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
                 Designing responsive and intuitive web applications tailored to your unique business needs.
-                <ul className="my-4 flex flex-col gap-2">
-                  <li className="flex items-center gap-2">
-                    
-                  </li>
-                  <li className="flex items-center gap-2">
-                    
-                  </li>
-                  <li className="flex items-center gap-2">
-                    
-                  </li>
-                </ul>
               </CardItem>
-              <div className="flex justify-between items-center mt-8">
               </div>
           </CardBody>
         </CardContainer>
         <CardContainer className="inter-var">
           <CardBody className="bg-[#191917] relative group/card  dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] dark:bg-black dark:border-white/[0.2] border-white/[0.1] w-full md:!w-[350px] h-auto rounded-xl px-5 py-20 border">
+          <div className="mt-10 text-pretty text-start">
             <CardItem 
             translateZ={50}
-            className="text-2xl font-bold text-[#f088f9]"
+            className="text-2xl font-bold text-[#f088f9] flex items-center justify-between"
             >
-              Development
+              Development <Settings className="w-7 h-7"/>
               
             </CardItem>
             <CardItem
@@ -266,26 +248,14 @@ const Landing = () => {
                 className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
                 Building robust and scalable solutions with cutting-edge technologies for seamless performance.
-                <ul className="my-4 flex flex-col gap-2">
-                  <li className="flex items-center gap-2">
-                    
-                  </li>
-                  <li className="flex items-center gap-2">
-                    
-                  </li>
-                  <li className="flex items-center gap-2">
-                    
-                  </li>
-                </ul>
               </CardItem>
-              <div className="flex justify-between items-center mt-8">
               </div>
           </CardBody>
         </CardContainer>
         </div>
 
       {/* Projects Section */}
-      <h2 className="mt-3 px-8 text-purple-400 font-semibold text-4xl mb-8 cursor-default">
+      <h2 className="mt-3 px-8 text-purple-400 font-semibold text-4xl mb-5 cursor-default">
         My Projects
       </h2>
       
@@ -295,13 +265,13 @@ const Landing = () => {
             style={{
               border: "none",
               borderTop: "0.2px solid #b8b79d",
-              margin: "20px 0",
+              margin: "20px 30px",
               opacity: 0.3,
             }}
           />
           {/* Parent container */}
           <motion.div
-            className="mt-3 px-8 mb-[70px] space-y-8 py-8"
+            className="mt-3 px-8 space-y-8 py-[60px]"
             initial="initial"
             whileHover="hover"
           >
