@@ -1,9 +1,9 @@
 import "./globals.css";
 import Link from "next/link";
 import { User, HomeIcon, Contact, Briefcase } from "lucide-react";
-import { DM_Sans } from "next/font/google";
+import { Outfit } from "next/font/google";
 
-const font = DM_Sans({ subsets: ["latin"] });
+const outfit = Outfit({ subsets: ['latin'], weight: ['300', '400', '700'] });
 
 export const metadata = {
   title: "Folio",
@@ -56,7 +56,7 @@ function TopNav() {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scrollbar">
-      <body className={`${font.class} h-screen`}>
+      <body className={`${outfit.class} h-screen`}>
         <TopNav />
         {children}
       </body>
