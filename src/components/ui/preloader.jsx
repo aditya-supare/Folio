@@ -29,7 +29,7 @@ const Preloader = ({ onComplete }) => {
     
     gsap.to(".count", {
       opacity: 0,
-      delay: 3.5,
+      delay: 3.2,
       duration: 0.5,
     });
 
@@ -101,7 +101,7 @@ const Preloader = ({ onComplete }) => {
           <p>0</p>
         </div>
         <div className="copy">
-          <p className="ml16 folio">Welcome</p>
+          <p className="ml16 folio">Loading</p>
         </div>
       </div>
       <div className="loader-2"></div>
