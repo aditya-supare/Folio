@@ -1,5 +1,7 @@
 "use client"
 
+import { useEffect } from "react"
+import Lenis from "lenis"
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
@@ -36,6 +38,26 @@ export default function Contact() {
     e.preventDefault()
     console.log(formData)
   }
+
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      smooth: true,
+      sync: true, 
+      duration: 0.3,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+      smoothTouch: false, 
+      lerp: 0.1, // Lower value for more direct movement (default is 0.1)
+    });
+  
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  
+    return () => lenis.destroy();
+  }, []);
 
   return (
     <div className="min-h-screen text-[#e1e0bd] p-6 md:p-12">
@@ -148,10 +170,10 @@ export default function Contact() {
             </div>
           </motion.div>
         </motion.div>
-        <div className="mt-6">
+        <div className="mt-6 mr-64">
         <Footer/>
         </div>
       </div>
     </div>
-  )
+  ) 
 }

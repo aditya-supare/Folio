@@ -1,5 +1,7 @@
 "use client"
 
+import Lenis from "lenis"
+import { useEffect } from "react"
 import { motion } from "framer-motion"
 import { Footer } from "@/components/ui/footer"
 import { ProjectCard } from "@/components/ui/project-card"
@@ -27,6 +29,27 @@ const projects = [
 ]
 
 const Projects = () => {
+
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      smooth: true,
+      sync: true, 
+      duration: 0.3,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+      smoothTouch: false, 
+      lerp: 0.1, // Lower value for more direct movement (default is 0.1)
+    });
+  
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  
+    return () => lenis.destroy();
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col items-center">
       <motion.section

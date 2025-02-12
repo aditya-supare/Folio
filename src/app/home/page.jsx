@@ -65,15 +65,22 @@ const Landing = () => {
   useEffect(() => {
     const lenis = new Lenis({
       smooth: true,
-    })
-
+      sync: true, 
+      duration: 0.3,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+      smoothTouch: false, 
+      lerp: 0.1, // Lower value for more direct movement (default is 0.1)
+    });
+  
     function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
+      lenis.raf(time);
+      requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf)
-    return () => lenis.destroy()
-  }, [])
+    requestAnimationFrame(raf);
+  
+    return () => lenis.destroy();
+  }, []);
+  
 
   useEffect(() => {
     const button = buttonRef.current
@@ -122,6 +129,19 @@ const Landing = () => {
       <section className="mt-0">
         <LampComponent />
       </section>
+
+      {/* <video 
+      className="rounded-xl shadow-lg"
+      width="800" 
+      height="450"
+      controls 
+      autoPlay 
+      loop 
+      muted
+      >
+        <source src="C:\Users\ADITYA\Desktop\coding\folio\public\videos\ocean.mp4" type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video> */}
 
       <hr
         style={{
@@ -190,26 +210,12 @@ const Landing = () => {
         </motion.div>
       </section>
 
-      {/* About Me Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        className="mt-12 px-8 text-[#efefdb] text-xl"
-      >
-        <h3 className="text-2xl font-semibold mb-4">About Me</h3>
-        <p>
-          I'm Aditya Supare, a passionate developer and designer with a keen eye for creating intuitive and visually
-          appealing digital experiences. With expertise in UI/UX design, web development, and animation, I strive to
-          bring innovative ideas to life through code and creativity.
-        </p>
-      </motion.div>
 
       {/* What I do Section */}
       <div className="flex flex-col items-center mt-10">
         <span className="text-[#c029ed] text-[42px] font-medium">What I do</span>
       </div>
-      <div className="flex flex-wrap items-center text-left justify-center gap-4 mt-0 px-4 md:px-8 cursor-default">
+      <div className="flex flex-wrap items-center text-left justify-center gap-4 mt-0 px-4 md:px-8 cursor-default sm:py-2">
         <CardContainer className="inter-var">
           <CardBody className="bg-[#191917] relative group/card dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] dark:bg-black dark:border-white/[0.2] border-white/[0.1] w-full md:!w-[350px] h-auto rounded-xl px-5 py-20 border flex flex-col">
             <div className="mt-10 text-pretty text-start">
@@ -299,9 +305,9 @@ const Landing = () => {
                   hover: { x: 20, color: "#5ec8e5" },
                 }}
                 transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 10,
+                  type: "tween",
+                  duration: 0.2,
+                  ease: "easeInOut",
                 }}
                 className="flex flex-col ml-0 md:ml-20 mb-4 md:mb-0"
               >
@@ -311,11 +317,11 @@ const Landing = () => {
                     hover: { x: 20 },
                   }}
                   transition={{
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 10,
+                    type: "tween",
+                    duration: 0.3,
+                    ease: "easeInOut",
                   }}
-                  className="text-3xl md:text-4xl font-semibold"
+                  className="text-3xl md:text-[44px] font-medium"
                 >
                   {project.name}
                 </motion.h3>
@@ -325,9 +331,9 @@ const Landing = () => {
                     hover: { x: 20 },
                   }}
                   transition={{
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 10,
+                    type: "tween",
+                    duration: 0.3,
+                    ease: "easeInOut",
                     delay: 0.1,
                   }}
                   className="text-sm text-[#e1e0bd] mt-1"
@@ -336,16 +342,17 @@ const Landing = () => {
                 </motion.p>
               </motion.div>
 
+
               {/* Right Section */}
               <motion.div
                 variants={{
                   initial: { x: 0 },
-                  hover: { x: -20 },
+                  hover: { x: -40 },
                 }}
                 transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 10,
+                  type: "tween",
+                  duration:0.3,
+                  ease: "easeInOut"
                 }}
                 className="text-left md:text-right mr-0 md:mr-20"
               >

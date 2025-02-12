@@ -13,11 +13,12 @@ const Page = () => {
 
   return (
     <>
-      {showPreloader ? (
+      {/* {showPreloader ? (
         <Preloader onComplete={handlePreloaderComplete} />
       ) : (
         <Landing />
-      )}
+      )} */}
+      <Landing/>
     </>
   );
 };
