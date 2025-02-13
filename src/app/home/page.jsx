@@ -129,20 +129,7 @@ const Landing = () => {
       <section className="mt-0">
         <LampComponent />
       </section>
-
-      {/* <video 
-      className="rounded-xl shadow-lg"
-      width="800" 
-      height="450"
-      controls 
-      autoPlay 
-      loop 
-      muted
-      >
-        <source src="C:\Users\ADITYA\Desktop\coding\folio\public\videos\ocean.mp4" type="video/mp4"/>
-        Your browser does not support the video tag.
-      </video> */}
-
+      
       <hr
         style={{
           border: "none",
